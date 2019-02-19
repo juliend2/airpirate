@@ -1,6 +1,5 @@
 <?php
 
-include 'config.php';
 
 function sequentially_list_records($api_key, $db_id, $table_name, $view_name, $offset = null) {
     $context = stream_context_create(array(
@@ -29,7 +28,7 @@ function do_with_records($api_key, $db_id, $table_name, $view_name, $func) {
     $records = array();
     $count = 0;
     do {
-        $response = sequentially_list_records(API_KEY, $db_id, $table_name, $view_name, $offset);
+        $response = sequentially_list_records($api_key, $db_id, $table_name, $view_name, $offset);
         $count += count($response->records);
         if (is_callable($func)) {
             $func($response->records);

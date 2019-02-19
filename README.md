@@ -4,8 +4,9 @@
 
 ```php
 include 'airpirate.php';
+define('API_KEY', 'YOUR API KEY');
 
-$n_records = do_with_records(API_KEY, 'appZJFyErEhuZNkPN', 'bonheur', 'mainview', function($records){
+$n_records = do_with_records(API_KEY, 'baseID', 'tablename', 'viewname', function($records){
     echo '<dl>';
     foreach ($records as $record) {
         echo '<dt>';
